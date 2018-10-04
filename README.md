@@ -16,7 +16,7 @@ PHP Ctype 扩展
 PHP JSON 扩展
 
 <h3>配置</h3>
-1.创建相应的表
+<p><b>1.创建相应的表</b></p>
 
 1）que_column栏目表
 
@@ -78,5 +78,5 @@ CREATE TABLE `que_question` (
 
 ) ENGINE=InnoDB AUTO_INCREMENT=2746 DEFAULT CHARSET=utf8;
 
-2.修改.env里面的数据库配置信息
+<p><b>2.修改.env里面的数据库配置信息</b></p>
 
