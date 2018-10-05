@@ -32,11 +32,14 @@
 		background: #F6F6F6;
 	}
 	.tag{
-		background-color: rgba(1,126,102,0.08);
+		line-height: 22px;
+		text-align: center;
 		color: #017E66;
+		background-color: rgba(1,126,102,0.08);
 		
 	}
 	.tag:hover{
+		color: white;
 		background-color: #017E66;
 	}
 </style>
@@ -55,7 +58,9 @@
 				<li class="active">{{ $data['question']->title }}</li>
 			</ul>
 			<li>
-				<a class="tag">{{ $data['question']->keyword }}</a>
+				@foreach($data['keywordArr'] as $arr)
+				<a class="tag" href="/search?tag={{ $arr }}">{{ $arr }}</a>
+				@endforeach
 				<span style="color: #999;">{{ $data['question']->pageviews }}浏览</span>
 			</li>
 			<h3 class="text-center">{{ $data['question']->title }}</h3>

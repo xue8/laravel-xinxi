@@ -73,30 +73,30 @@
 			    </div>
 			    <div class="card-body">
 					<ul>
-						@foreach($data['question'] as $question)
+						@foreach($data['results'] as $res)
 						<li>
 							<div class="title">
 								<h2>
-									<a href="/q/{{ $question->id }}">{{ $question->title }}</a>
+									<a href="/q/{{ $res->id }}">{{ $res->title }}</a>
 								</h2>
 							</div>
-							<div class="summary">{{ $question->describes }}</div>
-							<div class="list_userbar">{{ $question->created_at }}</div>
+							<div class="summary">{{ $res->describes }}</div>
+							<div class="list_userbar">{{ $res->created_at }}</div>
 						</li>
 						@endforeach					
 					</ul>			    	
 			    </div> 
 			    <div class="card-footer">
 				    <ul class="pagination">
-					    @if( $data['question']->currentPage() <= 1 )
-					    <li class="page-item"><a class="page-link" href="{{ $data['question']->appends(['query'=>$data['query']])->nextPageUrl() }}">下一页</a></li>
-					    @elseif( $data['question']->currentPage() != $data['question']->lastPage() )
+					    @if( $data['results']->currentPage() <= 1 )
+					    <li class="page-item"><a class="page-link" href="{{ $data['results']->appends([$data['type']=>$data['query']])->nextPageUrl() }}">下一页</a></li>
+					    @elseif( $data['results']->currentPage() != $data['results']->lastPage() )
 					    <li class="page-item"><a class="page-link" href="question">首页</a></li>
-					    <li class="page-item"><a class="page-link" href="{{ $data['question']->appends(['query'=>$data['query']])->previousPageUrl() }}">上一页</a></li>	
-				    	<li class="page-item"><a class="page-link" href="{{ $data['question']->appends(['query'=>$data['query']])->nextPageUrl() }}">下一页</a></li>					    				    
+					    <li class="page-item"><a class="page-link" href="{{ $data['results']->appends([$data['type']=>$data['query']])->previousPageUrl() }}">上一页</a></li>	
+				    	<li class="page-item"><a class="page-link" href="{{ $data['results']->appends([$data['type']=>$data['query']])->nextPageUrl() }}">下一页</a></li>					    				    
 				    	@else
 				    	<li class="page-item"><a class="page-link" href="question">首页</a></li>
-				    	<li class="page-item"><a class="page-link" href="{{ $data['question']->appends(['query'=>$data['query']])->previousPageUrl() }}">上一页</a></li>					    
+				    	<li class="page-item"><a class="page-link" href="{{ $data['results']->appends([$data['type']=>$data['query']])->previousPageUrl() }}">上一页</a></li>					    
 				    	@endif
 				    </ul>			    	
 			    </div>

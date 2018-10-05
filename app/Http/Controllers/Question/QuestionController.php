@@ -45,7 +45,9 @@ class QuestionController extends Controller
 		$question = Que_Question::where('id', $id)->get()->first();
 		$content = Que_Content::where('id', $question->cid)->get()->first();
 		$column = Que_Column::where('id', $question->cnid)->get()->first();
-		$data = ['question'=>$question, 'content'=>$content, 'column'=>$column];
+		$keywordStr = $question->keyword;
+		$keywordArr = explode(',', $keywordStr);
+		$data = ['question'=>$question, 'content'=>$content, 'column'=>$column, 'keywordArr'=>$keywordArr];
 		return Response(view('question.question')
 						->with('data',$data)
 						)

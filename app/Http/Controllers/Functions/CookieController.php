@@ -8,17 +8,6 @@ use Illuminate\Support\Facades\Cookie;
 
 class CookieController extends Controller
 {
-//	#set cookie
-//	public function setConkie(Response $response,$key, $value)
-//	{
-//		return $response->cookie($key, $value, 1440);
-//	}
-//	#get cookie
-//	public function getCookie(Request $request,$key)
-//	{
-//		return $request->cookie($key);
-//	}
-	
 	#set cookie
 	public function setCookie($key, $value)
 	{
