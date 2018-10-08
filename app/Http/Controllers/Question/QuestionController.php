@@ -45,9 +45,56 @@ class QuestionController extends Controller
 		$question = Que_Question::where('id', $id)->get()->first();
 		$content = Que_Content::where('id', $question->cid)->get()->first();
 		$column = Que_Column::where('id', $question->cnid)->get()->first();
+		#tag
 		$keywordStr = $question->keyword;
 		$keywordArr = explode(',', $keywordStr);
-		$data = ['question'=>$question, 'content'=>$content, 'column'=>$column, 'keywordArr'=>$keywordArr];
+		
+		#相似问题
+		#获取所有关键词的相关问答
+		$similarQuestionArr = [];
+		foreach($keywordArr as $k)
+		{
+			$similarQuestionArr_1 = Que_Question::where('keyword', 'like', '%' . $k . '%')->get()->toArray();
+			$similarQuestionArr = array_merge($similarQuestionArr, $similarQuestionArr_1);
+		}
+		#只保留关键词和$similarQuestionArr索引id
+		$similarQuestionArrKeyword = array_column($similarQuestionArr, 'keyword');
+		#遍历所有关键词 将含有该关键词的问答id入栈
+		$similarQuestionArrId = [];
+		foreach($keywordArr as $k)
+		{
+			foreach($similarQuestionArrKeyword as $kid=>$s)
+			{
+				if(strstr($s, $k))
+				{
+					array_push($similarQuestionArrId, $kid);
+				}
+			}	
+		}
+		#根据问答出现次数进行排序
+		$similarQuestionArrId = array_count_values($similarQuestionArrId);
+		arsort($similarQuestionArrId);
+		#取6个相关问答推荐
+		$similarQuestionArrResult = [];
+		foreach($similarQuestionArrId as $kid=>$s)
+		{
+			if(!in_array($similarQuestionArr[$kid]['id'], $similarQuestionArrResult) && $similarQuestionArr[$kid]['id'] != $id)
+			{
+				array_push($similarQuestionArrResult, $similarQuestionArr[$kid]['id']);
+			}
+			if(count($similarQuestionArrResult) > 5)
+			{
+				break ;
+			}
+		}
+		$similarQuestionArrResult_1 = [];
+		foreach($similarQuestionArrResult as $s)
+		{
+				$q = Que_Question::where('id', $s)->get()->first();
+				array_push($similarQuestionArrResult_1, $q);
+		}
+		
+		$data = ['question'=>$question, 'content'=>$content, 'column'=>$column, 'keywordArr'=>$keywordArr, 'similarQuestionArr'=>$similarQuestionArrResult_1];
 		return Response(view('question.question')
 						->with('data',$data)
 						)

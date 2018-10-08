@@ -42,6 +42,22 @@
 		color: white;
 		background-color: #017E66;
 	}
+	.card-body{
+		padding: 0.25rem;
+	}
+	.similar{
+		padding: 0.25rem;
+		margin-bottom: 0rem;
+	}
+	.similar li{
+		padding: 0.25rem;
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;		
+	}
+	.similar li a{
+		color: #009a61;
+	}
 </style>
 @endsection
 
@@ -68,9 +84,18 @@
 		</div>
 		<div class="span4 right">
 			<div class="page-header">
-				<h1>
-					
-				</h1>
+				<div class="container">
+				  <div class="card">
+				    <div class="card-header">相似问题</div>
+				    <div class="card-body">
+				    	<ul class="similar">
+				    		@foreach($data['similarQuestionArr'] as $s)
+				    		<li><a href="/q/{{ $s['id'] }}">{{ $s['title'] }}</a></li>
+				    		@endforeach
+				    	</ul>
+				    </div> 
+				  </div>
+				</div>				
 			</div>
 		</div>
 	</div>
