@@ -5,6 +5,7 @@
 		<title>@yield('title')</title>
 		<meta name="description" content="@yield('description')" />
     	<meta name="keywords" content="@yield('keyword')" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />    	
     	<link rel="stylesheet" href="/static/css/header.css" />
 		<link rel="stylesheet" type="text/css" href="/static/css/googleapis.css">
 		<link rel="stylesheet" type="text/css" href="/static/css/common.css">

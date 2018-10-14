@@ -10,7 +10,7 @@ white-space: -o-pre-wrap; /*Opera7*/
 word-wrap: break-word; /*InternetExplorer5.5+*/ 
 } 
 img{
-	max-width: 670px;
+	max-width: 100%;
 }
 
 .container{
@@ -21,7 +21,7 @@ img{
 	line-height: 64px;
 }
 .footer{
-	width: 40%;
+	width: 52%;
 	margin: auto;
 }
 .footer span{
