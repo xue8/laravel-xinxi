@@ -5,106 +5,77 @@
 		<title>@yield('title')</title>
 		<meta name="description" content="@yield('description')" />
     	<meta name="keywords" content="@yield('keyword')" />
-    	<link rel="stylesheet" href="/static/css/bootstrap.min.css" />
-		<style>
-			body{ 
-				margin:0; 
-				height:2520px;
-			}
-			.box{
-				height: 100%;
-			}
-			.hnav{
-				width: 80%;
-				height: 68.8px;
-				margin: auto;
-				background: #fafafa;
-			}
-			.navtext{
-				font-size: 25px;
-			}
-			.navform{
-				margin-left: 30px;
-			}
-			/*.nav1{
-				border-bottom:1px solid #eee;
-				padding-top: 5px;
-				padding-bottom: 5px;
-				line-height: 30px;
-			}
-			.nav1 span{
-				height: 30px;
-				line-height: 30px;
-				margin-right: 20px;
-			}
-			.nav1 span a{
-				text-decoration: none;
-				color: #9e9e9e;
-			}*/
-			.footer{
-	            left:0px;
-	            right: 0px;
-	            bottom: 0px;
-	            margin:auto;
-				background: #fafafa;
-				border: 1px solid #f3f3f3;
-			}
-			.footer p{
-				text-align: center;
-				line-height: 15px;
-				font-size: 12px;
-			}
-		</style>   	
+    	<link rel="stylesheet" href="/static/css/header.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/googleapis.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/common.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/index.css">
+		<link rel="stylesheet" type="text/css" href="/static/css/question.css">	    	
     	@yield('css')		
 	</head>
 	<body>
-		<div class="box">
-			<div class="hnav">	
-				<nav class="navbar navbar-expand-sm bg-light navbar-light">
-				  <!-- Brand/logo -->
-				  <a class="navbar-brand" href="/">Biecheng</a>
-				  <ul class="navbar-nav">
-				  	@foreach($nav as $column)
-				    <li class="nav-item">
-				      <a class="nav-link navtext" href="/{{ $column->cname }}">{{ $column->name }}</a>
-				    </li>
-				    @endforeach
-				  </ul>
-				  <form class="form-inline navform">
-				    <input class="form-control" type="text" placeholder="search" id="keyword">
-				    <button class="btn btn-success" type="button" onclick="getsearch()">搜索</button>
-				  </form>  
-				</nav>
-				<!--<div class="nav1">
-					@foreach($nav_erji as $column)
-					<span>
-						<a href="/question/{{ $column->cname }}">{{ $column->name }}</a>
-					</span>
-					@endforeach
-				</div>-->
+		<div class="global-nav">
+			<nav class="container">
+				<div class="nav-left">
+					<div class="header-logo">
+						<h1>
+							<a href="\">Biecheng</a>
+						</h1>
+					</div>
+					<div class="menu hidden-menu">
+						<ul class="menu-list hidden-menu-list">
+							@foreach($nav as $n)
+							<li class="menu-item">
+								<a href="\{{ $n->cname }}">{{ $n->name }}</a>
+							</li>
+							@endforeach
+						</ul>
+						<form class="header-search" onsubmit="getsearch();">
+							<input placeholder="搜索问题或关键字" type="text" id="keyword"/>
+						</form>
+					</div>
+				</div>
+				<div class="nav-right">
+					<ul class="menu-list">
+						<li class="menu-item dropdown-avatar">
+							<a class="user-avatar" data-toggle="dropdown" href="#"></a>
+							<div class="dropdown-avatar-menu">
+								<a href="/">提问题</a>								
+								<a href="/">个人中心</a>
+								<a href="/">个人设置</a>
+							</div>
+						</li>
+					</ul>
+				</div>			
+			</nav>
+		</div>
+		<div class="header-tag">
+			<div class="container">
+				<div class="col-md-middle htag">
+					<ul class="tag-ul">
+						@foreach($nav_erji as $n)
+						<li class="tag-li">
+							<a href="/question/{{ $n->cname }}">{{ $n->name }}</a>
+						</li>
+						@endforeach
+					</ul>
+				</div>				
 			</div>
-			@yield('main')
+		</div>			
+		@yield('main')
+		<div class="container">
 			<div class="footer">
-				<p>
-					<a>网站首页</a>
-					<em>|</em>
-					<a>关于我们</a>
-					<em>|</em>
-					<a>网站公告</a>
-					<em>|</em>
-					<a>联系我们</a>
-					<em>|</em>
-					<a>广告服务</a>
-				</p>
+				<span>关于我们|</span>
+				<span>联系我们|</span>
+				<span>广告服务</span>
 			</div>
 		</div>		
-	</body>	
-	<script type="text/javascript" src="/static/js/jquery.min.js" ></script>
-	<script type="text/javascript" src="/static/js/bootstrap.min.js" ></script>		
+	</body>
 	@yield('js')
+	<script type="text/javascript" src="/static/js/jquery.min.js" ></script>	
 	<script>
 		function getsearch()
 		{
+				window.event.returnValue=false; 
 				window.location.href = '/search?query=' + $('#keyword').val();
 		}
 	</script>	

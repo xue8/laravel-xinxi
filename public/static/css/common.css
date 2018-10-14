@@ -9,6 +9,9 @@ white-space: -pre-wrap; /*Opera4-6*/
 white-space: -o-pre-wrap; /*Opera7*/ 
 word-wrap: break-word; /*InternetExplorer5.5+*/ 
 } 
+img{
+	max-width: 670px;
+}
 
 .container{
 /*	height: auto !important;*/
@@ -72,6 +75,17 @@ word-wrap: break-word; /*InternetExplorer5.5+*/
 }
 .card-li a:hover{
 	text-decoration: underline;
+}
+.pagination{
+	margin: 0;
+	padding-left: 20px;
+}
+.page-item{
+	list-style: none;	
+	display: inline-block;
+}
+.page-link{
+	text-decoration: none;
 }
 
 @media (max-width: 600px){
