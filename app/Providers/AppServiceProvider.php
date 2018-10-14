@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Model\Que_Column;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -14,6 +15,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+    	Schema::defaultStringLength(191);
+		\Carbon\Carbon::setLocale('zh');    	
     	//$nav = Que_Column::all();
     	#顶级栏目
     	$nav = Que_Column::where('top',0)->get();

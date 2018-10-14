@@ -5,88 +5,56 @@
 @section('keyword', '编程交流、IT技术、技术问答、技术博客、开源、代码')
 
 @section('css')
-<link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="/static/css/googleapis.css">
+<link rel="stylesheet" type="text/css" href="/static/css/common.css">		
+<link rel="stylesheet" type="text/css" href="/static/css/index.css">	
 <style>
     html, body {
-        background-color: #fff;
-        color: #636b6f;
-        font-family: 'Raleway', sans-serif;
+        /*background-color: #fff;
+        color: #636b6f;*/
+/*        font-family: 'Raleway', sans-serif;*/
         font-weight: 100;
         height: 100vh;
         margin: 0;
-    }
-
-    .full-height {
-        height: 100vh;
-    }
-
-    .flex-center {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-    }
-
-    .position-ref {
-        position: relative;
-    }
-
-    .top-right {
-        position: absolute;
-        right: 10px;
-        top: 18px;
-    }
-
-    .content {
-        text-align: center;
-    }
-
-    .title {
-        font-size: 84px;
-    }
-
-    .links > a {
-        color: #636b6f;
-        padding: 0 25px;
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: .1rem;
-        text-decoration: none;
-        text-transform: uppercase;
-    }
-
-    .m-b-md {
-        margin-bottom: 30px;
     }
 </style>
 @endsection
 
 @section('main')
-    <div class="flex-center position-ref full-height">
-        <!--@if (Route::has('login'))
-            <div class="top-right links">
-                @auth
-                    <a href="{{ url('/home') }}">Home</a>
-                @else
-                    <a href="{{ route('login') }}">Login</a>
-                    <a href="{{ route('register') }}">Register</a>
-                @endauth
-            </div>
-        @endif-->
-
-        <div class="content">
-            <div class="title m-b-md">
-                Biecheng
-            </div>
-
-            <div class="links">
-                <a href="\question">问答</a>
-                <a href="\zhuanlan">专栏</a>
-                <a href="\question\php">PHP</a>
-                <a href="\question\python">Python</a>
-                <a href="\question\java">java</a>
-            </div>
-        </div>
-    </div>
+<div class="wrapper" style="margin-top: 10px;">
+	<div class="container" style="height: auto;">
+		<div class="col-md-left">
+		</div>
+		<div class="col-md-middle">
+			<div class="list-title">
+				<h5>为你推荐</h1>
+			</div>
+			<div class="news-list">
+				<ul class="item-ul">
+					@foreach($data['question'] as $d)
+					<li class="item-li">
+						<div class="item-title">
+							<a href="\q\{{ $d->id }}">{{ $d->title }}</a>
+						</div>
+						<div class="item-describes">
+							<a href="\q\{{ $d->id }}">
+								<span>{{ $d->describes }}</span>
+							</a>
+						</div>
+						<div class="item-userbar">
+							<span>
+								<a>学而时习之·</a>
+								<span class="time">{{ $d->created_at->diffForHumans() }}</span>
+								<span class="view">{{ $d->pageviews }}次浏览</span>
+							</span>
+						</div>
+					</li>
+					@endforeach
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
 @endsection
 
 @section('js')

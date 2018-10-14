@@ -10,4 +10,9 @@ class Que_Question extends Model
 	protected $id = 'id';
 	
 	public $timestamps = true;
+	
+	public function User()
+	{
+		return $this->belongsTo('App\Model\Api\User', 'uid', 'id');
+	}
 }

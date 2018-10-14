@@ -1,0 +1,124 @@
+body {
+  margin: 0px;
+  padding: 0px;
+}
+pre { 
+white-space: pre-wrap; /*css-3*/ 
+white-space: -moz-pre-wrap; /*Mozilla,since1999*/ 
+white-space: -pre-wrap; /*Opera4-6*/ 
+white-space: -o-pre-wrap; /*Opera7*/ 
+word-wrap: break-word; /*InternetExplorer5.5+*/ 
+} 
+
+.container{
+/*	height: auto !important;*/
+	margin-left: auto;
+	margin-right: auto;
+	height: 64px;
+	line-height: 64px;
+}
+.footer{
+	width: 40%;
+	margin: auto;
+}
+.footer span{
+	margin: auto;
+}
+.col-md-middle{
+	float: left;
+	background-color: #fff;
+	border-radius: 2px;
+	box-shadow: 0 1px 3px rgba(26,26,26,.1);
+} 
+.col-md-right{
+	float: left;
+	margin-left: 15px;
+	width: 27%;	
+}
+.col-md-right-s{
+	height: 210px;
+	background-color: #fff;
+	border-radius: 2px;
+	box-shadow: 0 1px 3px rgba(26,26,26,.1);
+}
+.card-header{
+	border-bottom: 1px solid #e2e2e2;
+}
+.card-header-text{
+	margin-left: 10px;
+	font-weight: 550;
+	line-height: 3;
+}
+.card-content{
+	margin-top: 10px;
+}
+.card-ul{
+	margin: 0;
+	padding-left: 10px;	
+}
+.card-li{
+	list-style: none;
+	line-height: 1.5;
+	
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;	
+}
+.card-li a{
+	color: #555;
+	text-decoration: none;
+}
+.card-li a:hover{
+	text-decoration: underline;
+}
+
+@media (max-width: 600px){
+	.hidden-menu-list{
+		display: none;
+	}
+	.header-search{
+		margin: 0 15px 0 10px !important;
+		width: 125px;
+	}
+	.col-md-middle{
+		width: 100%;
+	}
+	.header-tag{
+		display: none;
+	}  
+	.col-md-right{
+		display: none;
+	} 		    					
+}
+@media (min-width: 600px){
+	.container{
+		width: 580px;
+	}   
+	.header-search{
+		margin: 0 15px 0 10px;
+		width: 130px;
+	}	
+	.col-md-middle{
+		width: 70%;
+	}
+	.header-tag{
+		display: none;
+	}   			    		 			
+}    		
+@media (min-width: 995px){
+	.container{
+		width: 970px;
+	}    
+	.header-search{
+		margin: 0 15px 0 50px;	    			
+		width: 265px;
+	}
+	.col-md-middle{
+		width: 70%;
+	}
+	.header-tag{
+		display: block;
+	}   						
+}
