@@ -1,0 +1,152 @@
+/*注册*/
+.reg-contain{
+	margin-top: 100px;
+	margin-bottom: 100px;
+	margin-left: auto; 
+	margin-right: auto;
+	height: 500px;
+	width: 600px;
+	background-color: #fff;
+}
+.reg-header{
+	padding-top: 30px;
+	width: 100%;
+	height: 100px;	
+}
+.text-col{
+/*	width: 100%;*/
+	margin: auto;
+	text-align: center;
+}
+.reg-content{
+	width: 60%;
+
+	margin: auto;
+}
+.input-wrapper{
+	text-align: center;
+	margin: auto;
+	border-bottom: 1px solid #ebebeb;
+}
+.error-text{
+	text-align: center;
+	color: #f1403c;
+}
+.error-text p{
+	display: block;
+	margin: 0;
+}
+.input-col{
+	border: none;
+	outline: none;
+	height: 45px;
+	width: 100%;
+	font-size: inherit;
+}
+.text-align-left{
+	text-align: left;
+}
+.input-captcha{
+	width: 45% !important;
+}
+.captcha-img{
+	margin-top: 6px;
+	float: right;
+}
+.button-col{
+	border: none;
+	border-radius: 4px;
+	border-color: #008151;
+	background-color: #009a61;
+	color: #fff;
+	height: 2em;
+	font-size: 1.2em;
+	width: 100%;
+}
+.button-reg{
+	cursor: pointer;
+	margin-top: 30px;
+}
+.reg-footer{
+	margin-top: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 60%;
+/*	border-top: 1px solid #e2e2e2;*/
+}
+.reg-footer .text-col a{
+	color: inherit;
+	text-decoration: none;
+}
+.h3{
+	font-size: 3em;
+	color: #009a61;
+}
+.h5{
+	font-size: 1em;
+	color: #009a61;
+}
+.breadcrumb{
+	height: 50px !important;
+	border-bottom: 1px solid #e2e2e2;
+	margin-bottom: 20px;
+}
+.breadcrumb a{
+	/*display: block;
+	line-height: 35px;*/
+}
+.header-mac-title-q{
+	width: 85px !important;
+}
+.col-md-middle-u{
+	width: 100% !important;
+}
+.body-mac-u{
+	height: auto !important;
+}
+.editormd-wrap{
+	width: 80%; 
+	height: 350px; 
+	margin: auto;
+}
+.editormd-wrap-box{
+	border-radius: 7px;
+	border: 1px solid #d6d6d6;	
+}
+.editormd-border{
+	margin-top: 10px !important;
+}
+.editormd-q-tag{
+	width: 80%;
+	margin: auto;
+	border: 1px solid #d6d6d6;
+	border-radius: 7px;
+	display: none;
+}
+.editormd-q-tag div{
+	background-color: #EEEEEE !important;
+}
+.editormd-span{
+	line-height: 40px;
+	display: block;
+	width: 80%;
+	margin: auto;		
+}
+.col-md-middle-q{
+	width: 100% !important;
+}
+.mac-input-wrap-q{
+	width: 80% !important;
+}
+.editormd-q-tag-input{
+	border: 1px solid #d6d6d6 !important;
+	width: 60% !important;
+}
+
+@media (max-width: 600px){
+	.reg-contain{
+		margin-top: 50px;
+		margin-bottom: 50px;
+		width: 90%;
+	}
+}

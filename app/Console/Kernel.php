@@ -14,6 +14,7 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         //
+        \App\Console\Commands\webbasicinfo::class,
     ];
 
     /**
@@ -26,6 +27,9 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')
         //          ->hourly();
+	    	$schedule->command('webbasicinfo:name')
+		            ->timezone('Asia/Shanghai')
+		            ->hourly();       
     }
 
     /**

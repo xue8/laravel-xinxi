@@ -21,9 +21,17 @@ class AppServiceProvider extends ServiceProvider
     	#顶级栏目
     	$nav = Que_Column::where('top',0)->get();
     	view()->share('nav', $nav);
-    	#二级栏目
-    	$nav_erji = Que_Column::where('top',1)->get();
-    	view()->share('nav_erji', $nav_erji);    	
+    	#问答二级栏目
+    	$nav_erji = Que_Column::where('top',1)
+    							->where('sid', '1')
+    							->get();
+    	view()->share('nav_erji', $nav_erji); 
+     	#专栏二级栏目
+    	$nav_erji_zhuanlan = Que_Column::where('top',1)
+    									->where('sid', '2')
+    									->get();
+    	view()->share('nav_erji_zhuanlan', $nav_erji_zhuanlan);    	
+    	   	
         //
     }
 

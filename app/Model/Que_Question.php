@@ -11,8 +11,18 @@ class Que_Question extends Model
 	
 	public $timestamps = true;
 	
-	public function User()
+	public function user()
 	{
-		return $this->belongsTo('App\Model\Api\User', 'uid', 'id');
+		return $this->hasOne('App\Model\Api\User', 'id', 'uid');
 	}
+	
+	public function content()
+	{
+		return $this->hasOne('App\Model\Que_Content', 'id', 'cid');
+	}	
+
+	public function column()
+	{
+		return $this->hasOne('App\Model\Que_Column', 'id', 'cnid');
+	}		
 }

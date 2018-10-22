@@ -10,4 +10,9 @@ class Que_Column extends Model
 	protected $primaryKey = 'id';
 	
 	public $timestamps = false;
+	
+	public function question()
+	{
+		return $this->hasMany('App\Model\Que_Question', 'id', 'cnid');
+	}	
 }

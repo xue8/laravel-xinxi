@@ -43,8 +43,8 @@ class QuestionController extends Controller
 		}
 		
 		$question = Que_Question::where('id', $id)->get()->first();
-		$content = Que_Content::where('id', $question->cid)->get()->first();
-		$column = Que_Column::where('id', $question->cnid)->get()->first();
+//		$content = Que_Content::where('id', $question->cid)->get()->first();
+//		$column = Que_Column::where('id', $question->cnid)->get()->first();
 		#tag
 		$keywordStr = $question->keyword;
 		$keywordArr = explode(',', $keywordStr);
@@ -94,7 +94,8 @@ class QuestionController extends Controller
 				array_push($similarQuestionArrResult_1, $q);
 		}
 		
-		$data = ['question'=>$question, 'content'=>$content, 'column'=>$column, 'keywordArr'=>$keywordArr, 'similarQuestionArr'=>$similarQuestionArrResult_1];
+		//$data = ['question'=>$question, 'content'=>$content, 'column'=>$column, 'keywordArr'=>$keywordArr, 'similarQuestionArr'=>$similarQuestionArrResult_1];
+		$data = ['question'=>$question, 'keywordArr'=>$keywordArr, 'similarQuestionArr'=>$similarQuestionArrResult_1];		
 		return Response(view('question.question')
 						->with('data',$data)
 						)

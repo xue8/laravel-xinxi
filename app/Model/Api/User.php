@@ -13,10 +13,16 @@ class User extends Authenticatable
 	protected $table = 'users';
 	protected $primaryKey = 'id';
 	
-	public $timestamps = false;
+//	public $timestamps = false;
 	
     protected $fillable = [
-        'username', 'email', 'password',
+        'username', 
+        'email', 
+        'password',
+        'signnature',
+        'sex',
+        'nickname',
+        'status',
     ];
 
     protected $hidden = [

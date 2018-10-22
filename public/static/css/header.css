@@ -10,7 +10,7 @@ body{
 .nav-left{
 	height: inherit;
 	float: left;
-	width: 75%;
+	width: 85%;
 }  	
 .header-logo{
 	float: left;
@@ -19,6 +19,7 @@ body{
 	margin: 0;
 }
 .header-logo h1 a{
+	color: #757575;
 	text-decoration: none;    			
 }  
 .header-logo h1 a:hover{
@@ -29,7 +30,7 @@ body{
 	float: left;     			
 }  		
 .menu-list{
-	float: left;
+	float: right;
 	height: inherit;     			
 	margin: 0;	 					
 }
@@ -50,6 +51,7 @@ body{
 	color: #757575;
 }
 .menu-item a{
+	color: #555;
 	display: inline-block;
 	font-size: 18px;
 	padding: 0 12px;
@@ -63,7 +65,7 @@ body{
 	width: 13px;
 }
 .header-search input{
-	width: inherit;
+	width: 95%;
 	height: 27px;
 	font-size: 14px;
 	border: 1px solid #ccc;
@@ -72,8 +74,8 @@ body{
 
 /*right*/
 .nav-right{			
-	float: left;
-	width: 25%;
+	float: right;
+	width: 10%;
 }
 .user-avatar{
 	display: inline-block;
@@ -98,28 +100,24 @@ body{
 	z-index: 1000;
 	border: 1px solid rgba(0,0,0,0.15);
 	box-shadow: 0 6px 12px rgba(0,0,0,0.175);
-	/*display: none;*/
-	opacity: 0; 
-    transition: 0.5s; 
-	
+	display: none;
+	border-radius: 5px;
+	background-color: #fff;
 }
-.user-avatar:hover+.dropdown-avatar-menu{
-	/*display: block;*/
-	opacity: 1; 
+.dropdown-avatar-menu a{
+	color: #555;
+	width: 100%;
+	padding: 0;
 }
-.dropdown-avatar-menu:hover{
-	opacity: 1; 
-	/*display: block;*/
+.dropdown-avatar-menu a:hover{
+	background-color: #F3F3F3;
 }
-/*.dropdown-avatar-menu a:hover{
-	color: #757575;
-}*/
 
 .header-tag{
 	margin-top: 10px;
 }
 .htag{
-	height: 65px !important;
+	height: auto !important;
 	line-height: 30px !important;
 	background-color: #fff;
 	box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.1), 0 1px rgba(0,0,0,0.1);
@@ -127,6 +125,7 @@ body{
 .tag-ul{
 	margin-top: 0px;
 	padding-left: 15px;
+	padding-right: 15px;	
 }
 .tag-li{
 	position: relative;
@@ -138,14 +137,20 @@ body{
 	vertical-align: middle;
 	text-align: center;
 }
-.tag-li:hover{
+/*.tag-li:hover{
 	background-color: #F3F3F3;
 	border-radius: 4px;
-}
+}*/
 .tag-li a{
+	font-weight: 600;		
 	text-decoration: none;
-	color: #555;
+/*	color: #555;*/
+	color: #017E66;
+	background-color: rgba(1,126,102,0.08);
+	border-radius: 11px;
+	padding: 0 11px;
 }
 .tag-li a:hover{
-	color: #757575;
+	color: #fff;
+	background-color: #017E66;
 }

@@ -69,3 +69,26 @@
 .item-userbar .view{
 	padding-left: 10px;	
 }
+/*.box-top{
+	width: 100%;
+	height: inherit;
+}*/
+/*.menu-list-i{
+	padding: 0;
+	width: 100%;
+}
+.menu-list-i li{
+	width: 31%;
+}*/
+/*.menu-item-i{
+	height: 50px;
+}*/
+/*.col-md-right-s-i{
+	height: inherit;
+}*/
+.mac-text-i{
+	font-size: 16px;
+	height: 32px;
+	line-height: 32px;
+}
+

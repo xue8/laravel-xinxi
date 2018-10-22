@@ -9,7 +9,7 @@
 
 @section('main')
 <div class="wrapper" style="margin-top: 10px;">
-	<div class="container" style="height: auto;">
+	<div class="container clearfix ht-auto">
 		<div class="col-md-left">
 		</div>
 		<div class="col-md-middle">
@@ -30,7 +30,8 @@
 						</div>
 						<div class="item-userbar">
 							<span>
-								<a>学而时习之·</a>
+								<a class="fa fa-user-circle color-green"></a>
+								<a href="/u/{{ $d->uid }}">{{ $d->user->nickname }}</a>
 								<span class="time">{{ $d->created_at->diffForHumans() }}</span>
 								<span class="view">{{ $d->pageviews }}次浏览</span>
 							</span>
@@ -39,19 +40,10 @@
 					@endforeach
 				</ul>
 			</div>
-			<div class="page-list">
-			    <ul class="pagination">
-				    @if( $data['results']->currentPage() <= 1 )
-				    <li class="page-item"><a class="page-link" href="{{ $data['results']->nextPageUrl() }}">下一页</a></li>
-				    @elseif( $data['results']->currentPage() != $data['results']->lastPage() )
-				    <li class="page-item"><a class="page-link" href="results">首页</a></li>
-				    <li class="page-item"><a class="page-link" href="{{ $data['results']->previousPageUrl() }}">上一页</a></li>	
-			    	<li class="page-item"><a class="page-link" href="{{ $data['results']->nextPageUrl() }}">下一页</a></li>					    				    
-			    	@else
-			    	<li class="page-item"><a class="page-link" href="results">首页</a></li>
-			    	<li class="page-item"><a class="page-link" href="{{ $data['results']->previousPageUrl() }}">上一页</a></li>					    
-			    	@endif
-			    </ul>					
+			<div class="pagination">
+				<ul class="pagination-ul card-ul">
+<!--					<li class="card-li padding-li" id="paginationli">1</li>-->
+				</ul>
 			</div>			
 		</div>
 	</div>
@@ -59,4 +51,39 @@
 @endsection
 
 @section('js')
+<script type="text/javascript" src="/static/js/common.js" ></script>	
+<script>
+	var paginationNum = {{ $data['results']->lastPage() }};
+	//获取当前页
+	var pageStr = window.location.search;
+	var pageArr = pageStr.split('=');
+	
+	var page = pageArr[2];
+	var keyword = pageArr[1].split('&')[0]
+	page = parseInt(page);
+	
+	if($('.pagination').width() <= 600)
+	{
+		pagination(paginationNum, page, 1);
+	
+		//评论 pagination
+		$('.pagination-ul').on('click', '.padding-li', function() {		
+			var page = $(this).text();
+			page = parseInt(page);
+			window.location.href = '/search?query=' + keyword + '&page=' + page
+			pagination(paginationNum, page, 1);		
+		});		
+	}else{
+		pagination(paginationNum, page);
+	
+		//评论 pagination
+		$('.pagination-ul').on('click', '.padding-li', function() {		
+			var page = $(this).text();
+			page = parseInt(page);
+			window.location.href = '/search?query=' + keyword + '&page=' + page
+			pagination(paginationNum, page);		
+		});		
+	}	
+	
+</script>
 @endsection

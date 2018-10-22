@@ -13,8 +13,8 @@
         /*background-color: #fff;
         color: #636b6f;*/
 /*        font-family: 'Raleway', sans-serif;*/
-        font-weight: 100;
-        height: 100vh;
+        /*font-weight: 100;
+        height: 100vh;*/
         margin: 0;
     }
 </style>
@@ -22,7 +22,7 @@
 
 @section('main')
 <div class="wrapper" style="margin-top: 10px;">
-	<div class="container" style="height: auto;">
+	<div class="container clearfix ht-auto">
 		<div class="col-md-left">
 		</div>
 		<div class="col-md-middle">
@@ -43,9 +43,10 @@
 						</div>
 						<div class="item-userbar">
 							<span>
-								<a>学而时习之·</a>
+								<a class="fa fa-user-circle color-green"></a>
+								<a href="/u/{{ $d->uid }}">{{ $d->user->nickname }}</a>
 								<span class="time">{{ $d->created_at->diffForHumans() }}</span>
-								<span class="view">{{ $d->pageviews }}次浏览</span>
+								<span class="view">{{ $d->pageviews }}次浏览</span>			
 							</span>
 						</div>
 					</li>
@@ -53,10 +54,52 @@
 				</ul>
 			</div>
 		</div>
+		<div class="col-md-right">
+			<div class="col-md-right-s col-md-right-s-i">
+				<div class="box-top clearfix ht-auto">
+					<ul class="menu-list hidden-menu-list menu-list-i">
+						<li class="menu-item fa fa-question-circle-o menu-item-i">
+							<a href="/new/question">发问答</a>
+						</li>
+						<li class="menu-item fa fa-file-o menu-item-i">
+							<a href="/new/article">写文章</a>
+						</li>
+						<li class="menu-item fa fa-user-circle-o menu-item-i">
+							<a href="/u/home">用户+</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-right" style="margin-top: 10px;">
+			<div class="col-md-right-s col-md-right-s-i">
+				<div class="header-mac">
+					<span class="header-mac-dot-wrap">
+						社区状况
+					</span>					
+				</div>
+				<div class="mac-text mac-text-i">
+					<span class="fa fa-user-circle">注册会员 <span id="usernum"></span></span>
+				</div>
+				<div class="mac-text mac-text-i">
+					<span class="fa fa-question-circle">问答总数  <span id="questionnum"></span></span>
+				</div>
+				<div class="mac-text mac-text-i">
+					<span class="fa fa-file-text-o">文章总数  <span id="articlenum"></span></span>
+				</div>								
+			</div>
+		</div>		
 	</div>
 </div>
 @endsection
 
 @section('js')
+<script type="text/javascript" src="/static/js/jquery.min.js" ></script>
+<script type="text/javascript" src="/static/js/common.js" ></script>	
+<script>
+	window.onload = function () {
+		getWebBasciInfo();
+	};
+</script>
 @endsection
 
