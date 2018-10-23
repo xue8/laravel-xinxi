@@ -32,7 +32,7 @@ function getComment(qid, cnid, perpagenum, page)
 					+	'</div>'
 					+	'<div class="comment-body">'
 					+		'<div class="comment-body-header">'
-					+			'<a href="" id="username">' + dataArr[i].uid + '</a>'
+					+			'<a href="/u/' + dataArr[i].uid +  '" id="username">' + dataArr[i].uid + '</a>'
 					+			'<span class="comment-date"> ' + timestampFormat(Date.parse(dataArr[i].created_at)/1000) + '</span>'
 					+		'</div>'	
 					+		'<div class="comment-body-content">'
