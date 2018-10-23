@@ -36,6 +36,3 @@ https://laravel-china.org/docs/laravel/5.7/mail/2283
 #####3. 配置.env里面的数据库信息
 #####4. 配置.env、/config/mail.php邮件信息
 #####5. 修改/resources/views/functions/email.blade.phpd的邮件激活链接成你的域名
-
-
-
