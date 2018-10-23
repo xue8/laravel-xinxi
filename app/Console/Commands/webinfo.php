@@ -9,14 +9,14 @@ use App\Model\Que_Question;
 use App\Model\Api\QueArticle;
 use App\Model\Api\WebBasicInfo;
 
-class webbasicinfo extends Command
+class webinfo extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'webbasicinfo:name';
+    protected $signature = 'webbasicinfo1:name';
 
     /**
      * The console command description.
