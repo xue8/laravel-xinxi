@@ -69,21 +69,21 @@
 	{
 		pagination(paginationNum, page, 1);
 	
-		//评论 pagination
+		// pagination
 		$('.pagination-ul').on('click', '.padding-li', function() {		
 			var page = $(this).text();
 			page = parseInt(page);
-			window.location.href = '/question?page=' + page
+			window.location.href = '/question/{{ $data['column']->name }}?page=' + page
 			pagination(paginationNum, page, 1);		
 		});		
 	}else{
 		pagination(paginationNum, page);
 	
-		//评论 pagination
+		// pagination
 		$('.pagination-ul').on('click', '.padding-li', function() {		
 			var page = $(this).text();
 			page = parseInt(page);
-			window.location.href = '/question?page=' + page
+			window.location.href = '/question/{{ $data['column']->name }}?page=' + page
 			pagination(paginationNum, page);		
 		});		
 	}	
