@@ -73,7 +73,11 @@
 		$('.pagination-ul').on('click', '.padding-li', function() {		
 			var page = $(this).text();
 			page = parseInt(page);
-			window.location.href = '/question?page=' + page
+			if({{ $data['column']->top }} == 0){
+				window.location.href = '/zhuanlan?page=' + page
+			}else{
+				window.location.href = '/zhuanlan/{{ $data['column']->name }}?page=' + page
+			}	
 			pagination(paginationNum, page, 1);		
 		});		
 	}else{
@@ -83,7 +87,11 @@
 		$('.pagination-ul').on('click', '.padding-li', function() {		
 			var page = $(this).text();
 			page = parseInt(page);
-			window.location.href = '/zhuanlan?page=' + page
+			if({{ $data['column']->top }} == 0){
+				window.location.href = '/zhuanlan?page=' + page
+			}else{
+				window.location.href = '/zhuanlan/{{ $data['column']->name }}?page=' + page
+			}			
 			pagination(paginationNum, page);		
 		});		
 	}	
