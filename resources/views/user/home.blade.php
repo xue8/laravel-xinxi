@@ -1,4 +1,4 @@
-@extends('user.master')
+body-mac@extends('user.master')
 
 @section('title', '用户中心  - Biecheng 别城')
 @section('description', 'Biecheng开发者社区')

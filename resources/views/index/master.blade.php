@@ -8,7 +8,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />    	
     	<link rel="stylesheet" href="/static/css/header.css" />
     	<link rel="stylesheet" href="/static/css/font-awesome.min.css">	   		   	
-    	@yield('css')		
+    	@yield('css')
 	</head>
 	<body>
 		<div class="global-nav">
